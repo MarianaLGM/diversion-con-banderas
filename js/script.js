@@ -37,36 +37,65 @@ const countries= async(country)=>{
      if(!response.ok){
        throw new Error ("ha surgido un error", response.status)
      }
-   
      const data= await response.json();
-     console.log(data)
+     
+    console.log (data);
+
      const dataCountry= data.filter((data)=>data.country==country);
      return dataCountry
+
     }catch (error){
       console.log ("error al obtener los datos", error);
+    };
+    // ordenar de mayor a menor:
+  data.sort((a, b) => {
+    const country1 = a.name.common;
+    const country2 = b.name.common;
+
+    if (country1 < country2) {
+      return -1;
     }
+    if (country1 > country2) {
+      return 1;
+    }
+    return 0;
+  });
   };
   
-  let countriesList= document.getElementById("countries-list");
-
-  countries.forEach((country) => {
-    const contenedorCountry =document.createElement("li")//creo un li para meter toda la info de los usuarios menos dirección y compañia que van en otro contenedor
-    contenedorCountry.classList.add ("contenedorCountry")
-    contenedorCountry.innerHTML =`
   
+  let countriesList= document.getElementById("countries-list");
+  let lista= document.getElementById ("lista")
+
+  countries((country) => {
+    const contenedorCountry =document.createElement("li")
+   
+    contenedorCountry.classList.add ("contenedorCountry")
+    
+    contenedorCountry.innerHTML =
+    `
     <li>${country.name.common}</li>
-    <li>${country.flag}</li>
+    <li>${country.flags}</li>
+     `;
+
+    lista.appendChild (contenedorCountry);
+    countries().then((data)=>contenedorCountry("country".data));
+
+    const contenedorInfoCountry =document.createElement("li")
+    contenedorInfoCountry.classList.add ("contenedorInfoCountry")
+    contenedorInfoCountry.innerHTML =
+    `
     <li>${country.capital}</li>
     <li>${country.population}</li>
     <li>${country.car.side}</li>
-     `
-     countriesList.innerHTML+=templeteCountry
+     `;
+     contenedorCountry.appendChild(contenedorInfoCountry);
+     countries().then((data)=>contenedorInfoCountry("country".data));
+   }) 
 
-     listaUsuarios.appendChild (contenedorCountry);
 
-   })
 
-  countries().then((data)=>contenedorCountry("country".data));
-   
 
   
+   
+
+ 

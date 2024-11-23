@@ -26,3 +26,5 @@ Esta aplicación utiliza la API de REST Countries para obtener información sobr
 - La aplicación está diseñada con un enfoque simple y utiliza funciones asíncronas para manejar las solicitudes a la API. Recuerda que podrás usar fetch, Async/Await...
 - Puedes manipular el `HTML` si lo necesitaras. 
 - Si necesitas añadir clases a un elemento mediante JS, lo puedes hacer con `elemento.classList.add('clase que quieres añadir')` y para eliminar `elemento.classList.remove('clase que quieres añadir')`
+
+
