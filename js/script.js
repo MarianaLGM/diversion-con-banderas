@@ -4,10 +4,10 @@ let paisesMundo= document.getElementById("paises-mundo");
 let countriesList= document.getElementById("countries-list");
 let countriesInformation= document.getElementById("countries-information");
 let cerrarVentana= document.getElementById("cerrar-ventana");
-let abrir= getElementById ("abrir")
-let cerrar= getElementById ("cerrar")
+//let abrir= getElementById ("abrir")
+//let cerrar= getElementById ("cerrar")
 
-const getCountries= async(countries)=>{
+const getCountries= async()=>{
   try{
     const response=await fetch ("https://restcountries.com/v3/all");
   if(!response.ok){
@@ -34,9 +34,9 @@ const getCountries= async(countries)=>{
       <img id="abrirVentana" ${elements.flags}>
       <h2>${elements.name.common}</h2>
       `;
-      abrir.addEventListener("click", () => { //ABRIR VENTANA
-        countriesInformation.classList.add("show");
-      })
+      //abrir.addEventListener("click", () => { //ABRIR VENTANA
+       // countriesInformation.classList.add("show");
+     // })
       paisesMundo.appendChild (countriesList);
   }) 
 )
@@ -51,11 +51,11 @@ const getCountries= async(countries)=>{
       <h3>${elements.population}</h3>
       <h3>${elements.car.side}</h3>
       `;
-      cerrar.addEventListener("click", () => {//CERRAR VENTANA
-        countriesInformation.classList.remove("show");
+      //cerrar.addEventListener("click", () => {//CERRAR VENTANA
+       // countriesInformation.classList.remove("show");
       }) 
       paisesMundo.appendChild(countriesInformation);
-    })
+   // })
          
 }
 
