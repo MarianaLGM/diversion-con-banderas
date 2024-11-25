@@ -32,12 +32,13 @@ const getCountries= async(countries)=>{
       <img id="abrirVentana" ${elements.flags}>
       <h2>${elements.name.common}</h2>
       `;
+      abrir.addEventListener("click", () => { //ABRIR VENTANA
+        countriesInformation.classList.add("show");
+      })
       paisesMundo.appendChild (countriesList);
   }) 
 )
-abrir.addEventListener("click", () => { //ABRIR VENTANA
-  countriesInformation.classList.add("show");
-})
+
 
   //otro bucle para pintar el resto de información  
   //pte añadir un evento para que cuando hagas clic sobre el contenedor de la bandera abra una ventana con toda la información detallada. 
@@ -48,11 +49,12 @@ abrir.addEventListener("click", () => { //ABRIR VENTANA
       <h3>${elements.population}</h3>
       <h3>${elements.car.side}</h3>
       `;
+      cerrar.addEventListener("click", () => {//CERRAR VENTANA
+        countriesInformation.classList.remove("show");
+      }) 
       paisesMundo.appendChild(countriesInformation);
     })
-  cerrar.addEventListener("click", () => {//CERRAR VENTANA
-    countriesInformation.classList.remove("show");
-  })        
+         
 }
 
 //llamar a la function
