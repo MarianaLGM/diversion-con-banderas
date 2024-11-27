@@ -2,22 +2,17 @@
 
 
 const getCountries= async()=>{
-  try{
+  try{ //este try es como el then de la promesa del async
     const response=await fetch ("https://restcountries.com/v3/all");
   if(!response.ok){
      throw new Error ("ha surgido un error", response.status)
    }
-  const data= await response.json();
+  const data= await response.json();//segundo then de la promesa
   // ordenar de mayor a menor
   const ordenarPaises = await ordenarAlf(data);
   return pintarHtml (ordenarPaises);
 
-  /*ordenarAlf(data);
-  console.log(data);
-  return data.response;//devolver el resultado 
-  return data //retorno el resultado de los paises ordenados*/
-
-    }catch (error){
+    }catch (error){//este catch sería el catch de la promesa async
       console.log ("error al obtener los datos", error);
   };       
 }
@@ -46,8 +41,6 @@ const pintarHtml=(countries)=> {
   countries.forEach((elements)=>{ 
     let countriesList= document.getElementById("countries-list"); //contenedor grande
     let paisesMundo= document.createElement("div"); //contenedor foto y nombre
-    //let abrir= getElementById ("abrir")
-    //let cerrar= getElementById ("cerrar")
 
     paisesMundo.innerHTML =` 
     <img id="abrirVentana"  alt="bandera" src="${elements.flags[0]}"/>
@@ -59,7 +52,6 @@ const pintarHtml=(countries)=> {
    })
     countriesList.appendChild(paisesMundo);
   })
-  
 }
 
 function popUp (elements) {
@@ -75,7 +67,6 @@ contenedor.classList.add ("popUp")
       <h3>Population: ${elements.population} habitantes</h3>
       <h3>Car side: ${elements.car.side}</h3>
       `;
-let popUp= document.getElementsByClassName("popUp");//contenedor resto info
       cerrar.addEventListener("click", () => {//CERRAR VENTANA
       
       countriesInformation.innerHTML=`
