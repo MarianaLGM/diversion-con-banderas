@@ -41,7 +41,6 @@ const pintarHtml=(countries)=> {
   countries.forEach((elements)=>{ 
     let countriesList= document.getElementById("countries-list"); //contenedor grande
     let paisesMundo= document.createElement("div"); //contenedor foto y nombre
-
     paisesMundo.innerHTML =` 
     <img id="abrirVentana"  alt="bandera" src="${elements.flags[0]}"/>
     <h2>${elements.name.common}</h2>
@@ -67,6 +66,7 @@ contenedor.classList.add ("popUp")
       <h3>Population: ${elements.population} habitantes</h3>
       <h3>Car side: ${elements.car.side}</h3>
       `;
+//let popUp= document.getElementsByClassName("popUp");//contenedor resto info
       cerrar.addEventListener("click", () => {//CERRAR VENTANA
       
       countriesInformation.innerHTML=`
